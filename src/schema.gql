@@ -23,21 +23,17 @@ type Department {
 }
 
 type Query {
-  departments: [Department!]!
-  department(id: String!): Department!
   students: [Student!]!
   student(id: String!): Student!
+  departments: [Department!]!
+  department(id: String!): Department!
 }
 
 type Mutation {
-  createDepartment(createDepartmentInput: CreateDepartmentInput!): Department!
   createStudent(createStudentInput: CreateStudentInput!): Student!
   updateStudent(updateStudentInput: UpdateStudentInput!): Student!
   removeStudent(id: Int!): Student!
-}
-
-input CreateDepartmentInput {
-  name: String!
+  createDepartment(createDepartmentInput: CreateDepartmentInput!): Department!
 }
 
 input CreateStudentInput {
@@ -51,4 +47,8 @@ input UpdateStudentInput {
   email: String
   departmentId: String
   id: Int!
+}
+
+input CreateDepartmentInput {
+  name: String!
 }

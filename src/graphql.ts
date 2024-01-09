@@ -8,10 +8,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export interface CreateDepartmentInput {
-    name: string;
-}
-
 export interface CreateStudentInput {
     name: string;
     email: string;
@@ -23,6 +19,10 @@ export interface UpdateStudentInput {
     email?: Nullable<string>;
     departmentId?: Nullable<string>;
     id: number;
+}
+
+export interface CreateDepartmentInput {
+    name: string;
 }
 
 export interface Student {
@@ -41,17 +41,17 @@ export interface Department {
 }
 
 export interface IQuery {
-    departments(): Department[] | Promise<Department[]>;
-    department(id: string): Department | Promise<Department>;
     students(): Student[] | Promise<Student[]>;
     student(id: string): Student | Promise<Student>;
+    departments(): Department[] | Promise<Department[]>;
+    department(id: string): Department | Promise<Department>;
 }
 
 export interface IMutation {
-    createDepartment(createDepartmentInput: CreateDepartmentInput): Department | Promise<Department>;
     createStudent(createStudentInput: CreateStudentInput): Student | Promise<Student>;
     updateStudent(updateStudentInput: UpdateStudentInput): Student | Promise<Student>;
     removeStudent(id: number): Student | Promise<Student>;
+    createDepartment(createDepartmentInput: CreateDepartmentInput): Department | Promise<Department>;
 }
 
 export type DateTime = any;

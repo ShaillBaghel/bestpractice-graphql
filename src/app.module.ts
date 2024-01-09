@@ -19,7 +19,7 @@ import { StudentModule } from './student/student.module';
       installSubscriptionHandlers: true,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       
-      // include:[Department],
+      include:[DepartmentModule, StudentModule],
       definitions: {
         path: join(process.cwd(), 'src/graphql.ts'),
       },

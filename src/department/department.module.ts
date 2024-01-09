@@ -13,9 +13,10 @@ import { DirectiveLocation, GraphQLDirective } from 'graphql';
   imports: [TypeOrmModule.forFeature([Department, Student]),
   // GraphQLModule.forRoot({
   //   driver: ApolloDriver,
-  //   installSubscriptionHandlers: true,
+  //   // include:[Department],
+  //   // installSubscriptionHandlers: true,
   //   autoSchemaFile: join(process.cwd(), 'src/department/department.schema.gql'),
-    
+  //   sortSchema:true,
   //   // include:[Department],
   //   // definitions: {
   //   //   path: join(process.cwd(), 'src/department/department.graphql.ts'),

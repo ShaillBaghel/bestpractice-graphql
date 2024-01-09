@@ -5,7 +5,7 @@ import { CreateStudentInput } from './dto/create-student.input';
 import { UpdateStudentInput } from './dto/update-student.input';
 import { Department } from 'src/department/entity/department.entity';
 
-@Resolver(() => Student)
+@Resolver((of) => Student)
 export class StudentResolver {
   constructor(private readonly studentService: StudentService) {}
 
@@ -14,12 +14,12 @@ export class StudentResolver {
     return this.studentService.create(createStudentInput);
   }
 
-  @Query(() => [Student], { name: 'students'})
+  @Query((returns) => [Student], { name: 'students'})
   findAll() {
     return this.studentService.findAll();
   }
 
-  @Query(() => Student, { name: 'student'})
+  @Query((returns) => Student, { name: 'student'})
   findOne(@Args('id', { type: () => String }) id: string) {
     return this.studentService.findOne(id);
   }
