@@ -9,6 +9,7 @@ import { DepartmentModule } from './department/department.module';
 import { Department } from './department/entity/department.entity';
 import { Student } from './student/entities/student.entity';
 import { StudentModule } from './student/student.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { StudentModule } from './student/student.module';
       // subscribers: [],
       // migrations: [],
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

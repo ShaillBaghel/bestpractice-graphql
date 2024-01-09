@@ -11,5 +11,8 @@ export class CreateStudentInput {
   email: string;
 
   @Field()
+  password: string;
+
+  @Field()
   departmentId: string
 }

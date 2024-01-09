@@ -23,6 +23,10 @@ export class Student {
   @Column({ type: 'varchar' })
   email: string;
 
+  @Field()
+  @Column({ type: 'varchar' })
+  password: string;
+
   // @ResolvedField()
   @Column({ type: 'varchar',  nullable: true })
   departmentId: string

@@ -11,12 +11,14 @@
 export interface CreateStudentInput {
     name: string;
     email: string;
+    password: string;
     departmentId: string;
 }
 
 export interface UpdateStudentInput {
     name?: Nullable<string>;
     email?: Nullable<string>;
+    password?: Nullable<string>;
     departmentId?: Nullable<string>;
     id: number;
 }
@@ -29,6 +31,7 @@ export interface Student {
     id: string;
     name: string;
     email: string;
+    password: string;
     department: Department;
     created_at: DateTime;
 }
