@@ -4,6 +4,9 @@ import { Student } from './entities/student.entity';
 import { CreateStudentInput } from './dto/create-student.input';
 import { UpdateStudentInput } from './dto/update-student.input';
 import { Department } from 'src/department/entity/department.entity';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+
 
 @Resolver((of) => Student)
 export class StudentResolver {
@@ -15,13 +18,15 @@ export class StudentResolver {
   }
 
   @Query((returns) => [Student], { name: 'students'})
+  @UseGuards(JwtAuthGuard)
   findAll() {
     return this.studentService.findAll();
   }
 
   @Query((returns) => Student, { name: 'student'})
+  @UseGuards(JwtAuthGuard)
   findOne(@Args('id', { type: () => String }) id: string) {
-    return this.studentService.findOne(id);
+    return this.studentService.findOne('id', id);
   }
 
   @Mutation(() => Student)

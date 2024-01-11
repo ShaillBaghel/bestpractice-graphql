@@ -15,12 +15,13 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     DepartmentModule,
     StudentModule,
+    AuthModule,
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       installSubscriptionHandlers: true,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-      
-      include:[DepartmentModule, StudentModule],
+      context: ({ req }) => ({ req }),
+      // include:[DepartmentModule, StudentModule],
       definitions: {
         path: join(process.cwd(), 'src/graphql.ts'),
       },
@@ -39,7 +40,7 @@ import { AuthModule } from './auth/auth.module';
       // subscribers: [],
       // migrations: [],
     }),
-    AuthModule,
+    
   ],
   controllers: [AppController],
   providers: [AppService],

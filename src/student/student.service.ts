@@ -21,8 +21,8 @@ export class StudentService {
     return this.studentRepository.find();
   }
 
-  findOne(id: string): Promise<Student> {
-    return this.studentRepository.findOneOrFail({where: {id}});
+  findOne(field: string, id: string): Promise<Student> {
+    return this.studentRepository.findOneOrFail({where: {[field]: id}});
   }
 
   update(id: number, updateStudentInput: UpdateStudentInput) {

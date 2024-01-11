@@ -23,18 +23,28 @@ type Department {
   created_at: DateTime!
 }
 
+type LoginResponse {
+  access_token: String!
+  student: Student!
+}
+
 type Query {
-  students: [Student!]!
-  student(id: String!): Student!
   departments: [Department!]!
   department(id: String!): Department!
+  students: [Student!]!
+  student(id: String!): Student!
 }
 
 type Mutation {
+  createDepartment(createDepartmentInput: CreateDepartmentInput!): Department!
   createStudent(createStudentInput: CreateStudentInput!): Student!
   updateStudent(updateStudentInput: UpdateStudentInput!): Student!
   removeStudent(id: Int!): Student!
-  createDepartment(createDepartmentInput: CreateDepartmentInput!): Department!
+  login(loginInput: LoginInput!): LoginResponse!
+}
+
+input CreateDepartmentInput {
+  name: String!
 }
 
 input CreateStudentInput {
@@ -52,6 +62,7 @@ input UpdateStudentInput {
   id: Int!
 }
 
-input CreateDepartmentInput {
-  name: String!
+input LoginInput {
+  email: String!
+  password: String!
 }

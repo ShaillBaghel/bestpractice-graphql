@@ -42,7 +42,4 @@ export class Student {
   @Column({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
 }
-function ResolvedField() {
-  throw new Error('Function not implemented.');
-}
 
